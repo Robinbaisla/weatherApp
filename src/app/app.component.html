@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="weather-input">
+      <h2>Enter a City Name</h2>
+      <input [(ngModel)]="city" class="city-input" type="text" placeholder="Enter You City Name">
+      <button (click)="searchWeather()" class="search-btn">Search</button>
+    </div>
+
+    <div class="weather-data" *ngIf="showWeatherData">
+      <div class="current-weather">
+        <div class="details">
+          <h1>{{ name }} ({{ description }})</h1>
+          <h2>Temperature: {{ temperature }}°C</h2>
+          <h4>Wind: {{ wind }} M/S</h4>
+          <h4>Humidity: {{ humidity }}%</h4>
+          <h4>Time and Date: {{ getCurrentDateTime() }}</h4>
+        </div>
+      </div>
+      <div class="days-forecast" *ngIf="showForecast">
+        <h1>5-Day Forecast</h1>
+        <ul class="weather-cards">
+          <li class="card" *ngFor="let forecast of getNextFiveDaysForecast()">
+            <h2>{{ forecast.weather[0].description }}</h2>
+            <h3>Temp: {{ forecast.main?.temp }}°C</h3>
+            <h4>Wind: {{ forecast.wind?.speed }} M/S</h4>
+            <h4>Humidity: {{ forecast.main?.humidity }}%</h4>
+            <h4>Date and Time: {{ forecast.dt_txt | date:'medium' }}</h4>
+            <!-- <h4>Date and Time: {{ getCurrentDateTime() }}</h4> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

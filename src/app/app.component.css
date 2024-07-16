@@ -1,0 +1,112 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* Apply a box-sizing border-box model */
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background: url('src/assets/cloud.jpg') center center fixed;
+	background-size: cover;
+}
+
+.container {
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+	background: url('src/assets/cloud.jpg') center center fixed;
+	background-size: cover;
+	background-color: #f0f0f0;
+}
+
+.weather-input {
+	text-align: center;
+}
+/* .weather-input {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin-top: 200px; 
+  } */
+
+.city-input {
+	width: 40%;
+	padding: 8px;
+	margin: 10px 0;
+	text-align: center;
+}
+
+.search-btn {
+	padding: 8px;
+	text-align: center;
+}
+
+.current-weather {
+	text-align: center;
+}
+
+.days-forecast {
+	text-align: center;
+}
+
+.weather-cards {
+	list-style: none;
+	padding: 0;
+}
+
+.current-weather {
+	text-align: center;
+	background-color: #e0e0e0;
+	padding: 15px;
+	border-radius: 10px;
+	margin-top: 15px;
+}
+
+.card {
+	border: 1px solid #ccc;
+	margin: 10px;
+	padding: 10px;
+	background-color: #e0e0e0;
+	/* Add your desired background color */
+	border-radius: 8px;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+	.city-input {
+		width: 100%;
+	}
+
+	.card {
+		width: calc(100% - 20px);
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.weather-cards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.card {
+		width: 48%;
+		margin: 10px 0;
+	}
+}
